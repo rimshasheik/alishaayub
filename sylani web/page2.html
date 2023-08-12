@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Heading, Image, and Styling</title>
+</head>
+<body>
+  <h2 id="main-heading">SETTING</h2>
+  <img id="main-image" src="./download (1).jpeg" alt="jpeg">
+
+
+
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200vh;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 9px;
+}
+
+img {
+  max-width: 30%;
+  height: auto;
+}
+
+
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  margin: 10px;
+  padding: 5px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#fullName {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+</style>
+
+
+
+<div class="container">
+  
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <button id="updateButton">Update</button>
+    <p id="fullName"></p>
+  </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const updateButton = document.getElementById("updateButton");
+  const firstNameInput = document.getElementById("firstName");
+  const lastNameInput = document.getElementById("lastName");
+  const fullNameDisplay = document.getElementById("fullName");
+
+  updateButton.addEventListener("click", function () {
+    const firstName = firstNameInput.value;
+    const lastName = lastNameInput.value;
+    const fullName = `${firstName} ${lastName}`;
+    fullNameDisplay.textContent = `Full Name: ${fullName}`;
+  });
+});
+
+</script>
+
+
+<h1>Order</h1>
+
+<div class="container">
+    <h1>Boys' Names and Information</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Payment</th>
+          <th>Contact Number</th>
+        </tr>
+      </thead>
+      <tbody id="nameList">
+        <!-- Names and info will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+
+  <style>
+    .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+.calculator {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+label, input, button {
+    margin: 10px 0;
+    display: block;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#total {
+    font-weight: bold;
+}
+#logout-button {
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    background-color: #d32f2f;
+}
+
+
+  </style>
+
+<script>
+    const nameList = [
+  { name: "IRFAN", price: "$50", payment: "Credit Card", contact: "123-456-7890" },
+  { name: "ADNAN", price: "$490", payment: "PayPal", contact: "987-654-3210" },
+  { name: "DANISH", price: "$90", payment: "bank payment", contact: "987-654-3210" },
+  { name: "BILAL", price: "$80", payment: "easy paisa", contact: "987-654-3210" },
+
+];
+
+const tbody = document.getElementById("nameList");
+
+nameList.forEach((entry) => {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${entry.name}</td>
+    <td>${entry.price}</td>
+    <td>${entry.payment}</td>
+    <td>${entry.contact}</td>
+  `;
+  tbody.appendChild(row);
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const num1Input = document.getElementById("num1");
+    const num2Input = document.getElementById("num2");
+    const calculateButton = document.getElementById("calculate");
+    const totalSpan = document.getElementById("total");
+
+    calculateButton.addEventListener("click", function () {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+
+        if (!isNaN(num1) && !isNaN(num2)) {
+            const total = num1 + num2;
+            totalSpan.textContent = total;
+        } else {
+            totalSpan.textContent = "Invalid input";
+        }
+    });
+});
+document.getElementById("logout-button").addEventListener("click", function() {
+    alert("Logged out successfully!");
+});
+
+
+</script>
+<div class="calculator">
+
+    <label for="num2"></label>
+    <input type="number" id="num2" />
+
+    <button id="calculate">Calculate Total</button>
+
+    <p id="result">Total: <span id="total">0</span></p>
+</div>
+
+
+<br>
+
+<button id="logout-button">Logout</button>
+  <script src="script.js"></script>
+
+
+
+
+</body>
+</html>
+
